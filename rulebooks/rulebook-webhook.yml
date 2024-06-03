@@ -2,16 +2,14 @@
 - name: Listen for events on a webhook
   hosts: all
   sources:
+    # https://github.com/ansible/event-driven-ansible/blob/main/extensions/eda/plugins/event_source/webhook.py
     - ansible.eda.webhook:
         host: 0.0.0.0
         port: 5000
         token: "{{ token }}"
-
-# https://github.com/ansible/event-driven-ansible/blob/main/extensions/eda/plugins/event_source/webhook.py
-
   rules:
     - name: Say Hello
       condition: event.payload
       action:
-      debug:
-        msg: something happened in Dynatrace
+        debug:
+          msg: something happened in Dynatrace
