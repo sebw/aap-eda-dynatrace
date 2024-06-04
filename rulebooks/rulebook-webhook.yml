@@ -14,3 +14,12 @@
       action:
         debug:
           var: event.payload
+
+    - name: Run an AAP job when something is on fire
+      condition: event.payload.message == "fire"
+      run_job_template:
+        name: [EDA] reacting to a webhook event
+        organization: Default
+        job_args:
+          extra_vars:
+            payload: "{{ event.payload }}"
