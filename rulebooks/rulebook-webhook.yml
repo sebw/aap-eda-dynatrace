@@ -10,7 +10,7 @@
         token: "{{ token }}"
   rules:
     - name: Say Hello
-      condition: event.payload
+      condition: 1 == 1
       action:
         debug:
           var: event.payload
