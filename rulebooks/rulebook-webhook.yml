@@ -11,22 +11,14 @@
         port: 5000
         token: "{{ token }}"
   rules:
-    - name: Run an AAP job
-      condition: 2 == 2
-      action:
+    - name: Always run an AAP job and display the payload 
+      condition: 1 == 1
+      actions:
         run_job_template:
           name: "[EDA] reacting to a webhook event"
           organization: Default
           job_args:
             extra_vars:
               payload: "{{ event.payload }}"
-    - name: Display the whole payload
-      condition: 1 == 1
-      action:
-        debug:
-          var: event.payload
-    - name: Display the whole payload again
-      condition: 1 == 1
-      action:
         debug:
           var: event.payload
