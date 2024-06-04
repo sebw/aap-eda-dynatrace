@@ -9,14 +9,14 @@
         port: 5000
         token: "{{ token }}"
   rules:
-    - name: Say Hello
+    - name: Display the whole payload
       condition: 1 == 1
       action:
         debug:
           var: event.payload
 
-    - name: Run an AAP job when something is on fire
-      condition: event.payload.message == "fire"
+    - name: Run an AAP job
+      condition: 1 == 1
       run_job_template:
         name: [EDA] reacting to a webhook event
         organization: Default
