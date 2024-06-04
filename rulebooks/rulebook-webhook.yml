@@ -14,11 +14,13 @@
     - name: Always run an AAP job and display the payload 
       condition: 1 == 1
       actions:
-        run_job_template:
+      - run_job_template:
           name: "[EDA] reacting to a webhook event"
           organization: Default
           job_args:
             extra_vars:
               payload: "{{ event.payload }}"
-        debug:
+      - debug:
           var: event.payload
+      - print_event:
+          pretty: true
