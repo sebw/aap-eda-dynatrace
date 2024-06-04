@@ -14,7 +14,11 @@
       action:
         debug:
           var: event.payload
-
+    - name: Display the whole payload again
+      condition: 1 == 1
+      action:
+        debug:
+          var: event.payload
     - name: Run an AAP job
       condition: 2 == 2
       action:
