@@ -16,7 +16,7 @@
           var: event.payload
 
     - name: Run an AAP job when something is on fire
-      condition: event.payload.message == "fire"
+      condition: payload["message"] == "fire"
       run_job_template:
         name: [EDA] reacting to a webhook event
         organization: Default
