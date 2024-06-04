@@ -1,6 +1,8 @@
 ---
 - name: Listen for events on a webhook
   hosts: all
+  # https://ansible.readthedocs.io/projects/rulebook/en/v1.0.2/rulebooks.html
+  execution_strategy: parallel 
   sources:
     # https://github.com/ansible/event-driven-ansible/blob/main/extensions/eda/plugins/event_source/webhook.py
     # https://github.com/Dynatrace/Dynatrace-EventDrivenAnsible/blob/main/rulebooks/dt_webhook_event_example_rule.yml
