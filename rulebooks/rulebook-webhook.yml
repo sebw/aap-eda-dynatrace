@@ -25,5 +25,5 @@
               payload: "{{ event.payload }}"
       - debug:
           var: event.payload
-      - print_event:
-          pretty: true
+      - debug:
+          msg: https://github.com/sebw/aap-eda-dynatrace/edit/main/rulebooks/rulebook-webhook.yml
