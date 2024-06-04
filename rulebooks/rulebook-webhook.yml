@@ -10,7 +10,7 @@
         token: "{{ token }}"
   rules:
     - name: Say Hello
-      condition: event
+      condition: event.payload
       action:
         debug:
-          msg: something happened in Dynatrace
+          var: event.payload
