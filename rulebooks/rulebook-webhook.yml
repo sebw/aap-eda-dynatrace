@@ -2,7 +2,6 @@
 - name: Listen for events on a webhook
   hosts: all
   # https://ansible.readthedocs.io/projects/rulebook/en/v1.0.2/rulebooks.html
-  # execution_strategy: parallel 
   sources:
     # https://github.com/ansible/event-driven-ansible/blob/main/extensions/eda/plugins/event_source/webhook.py
     # https://github.com/Dynatrace/Dynatrace-EventDrivenAnsible/blob/main/rulebooks/dt_webhook_event_example_rule.yml
@@ -10,6 +9,10 @@
         host: 0.0.0.0
         port: 5000
         token: "{{ token }}"
+
+  # The first rule that matches the condition wins. One rule can run multiple actions: 
+  # https://ansible.readthedocs.io/projects/rulebook/en/latest/events_and_facts.html
+  # https://ansible.readthedocs.io/projects/rulebook/en/latest/rules.html
   rules:
     - name: Always run an AAP job and display the payload 
       condition: 1 == 1
