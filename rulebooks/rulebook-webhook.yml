@@ -16,7 +16,7 @@
           var: event.payload
 
     - name: Run an AAP job
-      condition: 1 == 1
+      condition: 2 == 2
       action:
         run_job_template:
           name: "[EDA] reacting to a webhook event"
